@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
-import { Token } from '../types/token';
+import { Token } from '@/types/token';
 
 const API_URL_TOKENS = '/api/tokens';
 const API_URL_LOGOS = '/api/supportedCurrencies';
