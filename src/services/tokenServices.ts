@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 import { Token } from '@/types/token';
 
@@ -8,7 +7,7 @@ const API_URL_LOGOS = '/api/supportedCurrencies';
 export const fetchTokens = async (): Promise<Token[]> => {
   try {
     const response = await axios.get(API_URL_TOKENS);
-    return response.data.payload.map((item: any) => ({
+    return response.data.payload.map((item: Record<string, unknown>) => ({
       id: item.pair,
       price: item.latestPrice,
       change24h: item.day,
@@ -22,10 +21,10 @@ export const fetchTokens = async (): Promise<Token[]> => {
   }
 };
 
-export const fetchTokenLogos = async (): Promise<any[]> => {
+export const fetchTokenLogos = async (): Promise<Token[]> => {
   try {
     const response = await axios.get(API_URL_LOGOS);
-    return response.data.payload.map((item: any) => ({
+    return response.data.payload.map((item: Record<string, unknown>) => ({
       currencySymbol: item.currencySymbol,
       name: item.name,
       logo: item.logo,
