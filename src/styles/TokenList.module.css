@@ -1,0 +1,32 @@
+.tokenContainer {
+    margin-top: 2rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tokenInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .tokenPrice {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .tokenChange {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .positive {
+    color: #4caf50;
+  }
+  
+  .negative {
+    color: #f44336;
+  }
+  
