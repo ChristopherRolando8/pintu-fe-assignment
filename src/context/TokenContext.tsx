@@ -34,7 +34,7 @@ export const TokenProvider: React.FC<{ children: React.ReactNode }> = ({ childre
             logoUrl: logo.logo,
           };
         });
-        setTokens(tokensWithLogos);
+        setTokens(tokensWithLogos as Token[]);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError('Failed to fetch token data. Please try again later.');

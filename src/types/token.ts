@@ -1,4 +1,6 @@
 export interface Token {
+  logo: string;
+  currencySymbol: string;
   id: string;
   name: string;
   price: string;
