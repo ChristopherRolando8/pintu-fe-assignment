@@ -57,31 +57,22 @@ const TokenList: React.FC = () => {
 
   return (
     <Container className={styles.tokenContainer}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }}>
-        <Typography variant="h4" sx={{ fontWeight: 'bold', textAlign: 'left', color: '#000' }}>
+      <Box className={styles.headerContainer}>
+        <Typography variant="h4" className={styles.headerTitle}>
           Harga Crypto Hari Ini
         </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            backgroundColor: '#F3F4F6',
-            borderRadius: '20px',
-            padding: '4px 16px',
-            width: '300px',
-          }}
-        >
+        <Box className={styles.searchContainer}>
           <InputBase
             placeholder="Cari aset di Pintu"
             inputProps={{ 'aria-label': 'search' }}
-            sx={{ ml: 1, flex: 1 }}
+            className={styles.searchInput}
           />
           <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
             <SearchIcon />
           </IconButton>
         </Box>
       </Box>
-      <Box sx={{ marginBottom: '20px', display: 'flex', justifyContent: 'center' }}>
+      <Box className={styles.tabsContainer}>
         <Tabs
           value={selectedTab}
           onChange={handleTabChange}
@@ -91,17 +82,6 @@ const TokenList: React.FC = () => {
           TabIndicatorProps={{ style: { display: 'none' } }}
           sx={{
             '& .MuiTab-root': {
-              textTransform: 'none',
-              minHeight: '48px',
-              minWidth: '100px',
-              borderRadius: '20px',
-              margin: '5px',
-              backgroundColor: '#F0F4FF',
-              color: '#007AFF',
-              display: 'flex',
-              alignItems: 'center',
-              flexDirection: 'row',
-              gap: '8px',
               '&:hover': {
                 backgroundColor: '#E0E7FF',
               },
@@ -113,26 +93,26 @@ const TokenList: React.FC = () => {
             },
           }}
         >
-          <Tab icon={<NewReleases />} label="New" />
-          <Tab icon={<Savings />} label="DeFi" />
-          <Tab icon={<SportsEsports />} label="NFT/Gaming" />
-          <Tab icon={<AccountBalance />} label="CEX" />
-          <Tab icon={<SwapHoriz />} label="DEX" />
-          <Tab icon={<Layers />} label="Layer-1" />
-          <Tab icon={<CastConnected />} label="Layer-2" />
-          <Tab icon={<Cloud />} label="DePIN" />
-          <Tab icon={<Savings />} label="Lending" />
-          <Tab icon={<Calculate />} label="AI & Big Data" />
-          <Tab icon={<Gavel />} label="Stablecoin" />
+          <Tab icon={<NewReleases />} label="New" className={styles.tabItem} />
+          <Tab icon={<Savings />} label="DeFi" className={styles.tabItem} />
+          <Tab icon={<SportsEsports />} label="NFT/Gaming" className={styles.tabItem} />
+          <Tab icon={<AccountBalance />} label="CEX" className={styles.tabItem} />
+          <Tab icon={<SwapHoriz />} label="DEX" className={styles.tabItem} />
+          <Tab icon={<Layers />} label="Layer-1" className={styles.tabItem} />
+          <Tab icon={<CastConnected />} label="Layer-2" className={styles.tabItem} />
+          <Tab icon={<Cloud />} label="DePIN" className={styles.tabItem} />
+          <Tab icon={<Savings />} label="Lending" className={styles.tabItem} />
+          <Tab icon={<Calculate />} label="AI & Big Data" className={styles.tabItem} />
+          <Tab icon={<Gavel />} label="Stablecoin" className={styles.tabItem} />
         </Tabs>
       </Box>
       {isMobile && (
-        <Box sx={{ marginBottom: '20px', textAlign: 'right' }}>
+        <Box className={styles.timeFrameContainer}>
           <Select
             value={timeFrame}
             onChange={handleTimeFrameChange}
             displayEmpty
-            sx={{ backgroundColor: '#F0F4FF', borderRadius: '20px', padding: '4px 16px' }}
+            className={styles.timeFrameSelect}
           >
             <MenuItem value="24H">24H</MenuItem>
             <MenuItem value="1W">1W</MenuItem>
@@ -141,18 +121,18 @@ const TokenList: React.FC = () => {
           </Select>
         </Box>
       )}
-      <TableContainer component={Paper} sx={{ borderRadius: '20px', boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)' }}>
+      <TableContainer component={Paper} className={styles.tableContainer}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>Crypto</TableCell>
-              <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>{!isMobile ? 'Price' : ''}</TableCell>
+              <TableCell className={styles.tableHeaderCell}>Crypto</TableCell>
+              <TableCell className={styles.tableHeaderCell}>{!isMobile ? 'Price' : ''}</TableCell>
               {!isMobile && (
                 <>
-                  <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>24H</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>1W</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>1M</TableCell>
-                  <TableCell sx={{ fontWeight: 'bold', fontSize: '1rem', color: '#7D7D7D' }}>1Y</TableCell>
+                  <TableCell className={styles.tableHeaderCell}>24H</TableCell>
+                  <TableCell className={styles.tableHeaderCell}>1W</TableCell>
+                  <TableCell className={styles.tableHeaderCell}>1M</TableCell>
+                  <TableCell className={styles.tableHeaderCell}>1Y</TableCell>
                 </>
               )}
             </TableRow>
@@ -163,7 +143,7 @@ const TokenList: React.FC = () => {
               <TableRow key={token.id} hover>
                 <TableCell>
                   <div className={styles.tokenInfo}>
-                    <Image src={token.logoUrl || ''} alt={`${token.name} logo`} className={styles.tokenLogo} width={40} height={40} />
+                    <Image src={token.logoUrl || ''} alt={`${token.name} logo`} width={40} height={40} />
                     <div>
                       <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>
                         {token.name}
